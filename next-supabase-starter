@@ -1,36 +1,35 @@
-next-supabase-starter/
-├── .github/
-│   └── workflows/ci.yml                # CI構成（Supabase CLI付き）
-├── .vscode/
-│   └── settings.json                   # VSCode向け設定
-├── .env.example                        # 環境変数テンプレ
-├── .gitignore
-├── README.md                           # 多言語対応・Vercelボタン付き
-├── setup.sh                            # 初期化スクリプト
-├── next.config.js
-├── package.json
-├── tsconfig.json
-├── vercel.json
-├── public/
-│   └── og.png                          # OSS向けOGP画像（任意）
-├── src/
-│   ├── app/                            # App Router
-│   ├── components/                     # UI部品
-│   ├── contexts/                       # AuthContextなど
-│   ├── hooks/                          # useAuthなど
-│   ├── lib/
-│   │   ├── api/client.ts               # fetchラッパー
-│   │   ├── supabase/client.ts          # Supabaseクライアント
-│   │   └── errors/AppError.ts          # 共通エラークラス
-│   ├── types/
-│   │   └── api/                        # APIレスポンス型
-│   ├── validators/
-│   │   └── user.ts                    # zodスキーマ
-│   ├── utils/
-│   └── styles/
-├── supabase/
-│   ├── migrations/
-│   ├── seed.sql
-│   └── policies.sql                    # RLS定義
-└── __tests__/
-    └── sample.test.ts
+src/
+├── domain/              # 💡 エンティティ・ビジネスルール（純粋関数のみ）
+│   └── Document.ts
+│
+├── usecases/            # 🧠 アプリケーションロジック（振る舞い定義）
+│   └── createDocument.ts
+│
+├── repositories/        # 🧱 DB/外部APIラッパー（Supabase, pgvector, OpenAI等）
+│   ├── documentRepository.ts
+│   ├── embeddingRepository.ts
+│   └── openaiRepository.ts
+│
+├── interfaces/          # 🌐 入出力層（API, UI）
+│   ├── api/
+│   │   └── document/create.ts
+│   └── ui/
+│       ├── components/
+│       ├── hooks/
+│       ├── pages/ (optional)
+│       └── contexts/
+│
+├── lib/                 # ⚙️ 技術依存（supabase client, OpenAI client, utils）
+│   ├── supabase/client.ts
+│   └── openai/client.ts
+│
+├── schema/              # 📏 zodによるバリデーション & 型推論の中心
+│   └── documentSchema.ts
+│
+├── types/               # 🧩 補助型（Supabase型や共通定義など）
+│   └── supabase.ts
+│
+└── tests/               # 🧪 各レイヤーに対するユニットテスト
+    ├── usecases/createDocument.test.ts
+    └── repositories/documentRepository.test.ts
+
