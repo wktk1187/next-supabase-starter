@@ -1,0 +1,36 @@
+next-supabase-starter/
+├── .github/
+│   └── workflows/ci.yml                # CI構成（Supabase CLI付き）
+├── .vscode/
+│   └── settings.json                   # VSCode向け設定
+├── .env.example                        # 環境変数テンプレ
+├── .gitignore
+├── README.md                           # 多言語対応・Vercelボタン付き
+├── setup.sh                            # 初期化スクリプト
+├── next.config.js
+├── package.json
+├── tsconfig.json
+├── vercel.json
+├── public/
+│   └── og.png                          # OSS向けOGP画像（任意）
+├── src/
+│   ├── app/                            # App Router
+│   ├── components/                     # UI部品
+│   ├── contexts/                       # AuthContextなど
+│   ├── hooks/                          # useAuthなど
+│   ├── lib/
+│   │   ├── api/client.ts               # fetchラッパー
+│   │   ├── supabase/client.ts          # Supabaseクライアント
+│   │   └── errors/AppError.ts          # 共通エラークラス
+│   ├── types/
+│   │   └── api/                        # APIレスポンス型
+│   ├── validators/
+│   │   └── user.ts                    # zodスキーマ
+│   ├── utils/
+│   └── styles/
+├── supabase/
+│   ├── migrations/
+│   ├── seed.sql
+│   └── policies.sql                    # RLS定義
+└── __tests__/
+    └── sample.test.ts
