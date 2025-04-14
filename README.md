@@ -21,3 +21,6 @@ cd next-supabase-starter
 npm install
 cp .env.example .env.local
 npm run dev
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/wktk1187/next-supabase-starter)
+
